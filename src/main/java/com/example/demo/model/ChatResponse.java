@@ -43,4 +43,16 @@ public class ChatResponse {
             this.message = message;
         }
     }
+
+    @Override
+    public String toString() {
+        if ( choices == null || choices.isEmpty()) {
+            return "No responses";
+        }
+        StringBuilder sb = new StringBuilder("Responses:\n");
+        for (Choice choice : choices) {
+            sb.append("- ").append(choice.getMessage().getContent()).append("\n");
+        }
+        return sb.toString();
+    }
 }
